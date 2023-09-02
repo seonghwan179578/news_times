@@ -1,7 +1,7 @@
 .head-line {
     margin-top: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 가로로 가운데 정렬 */
 }
 .head-line svg {
     width: 430px;

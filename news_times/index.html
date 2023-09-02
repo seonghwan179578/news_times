@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
+    
     <div class="side-menu" id="mySidenav">
       <button class="closebtn" onclick="closeNav()">&times;</button>
       <div class="side-menu-list" id="menu-list">
@@ -35,9 +35,18 @@
       </div>
 
 </div>
+
 <!-- 생략 -->
 <!-- 햄버거 버튼 추가  -->
 <i class="fas fa-bars hide icon-button" onclick="openNav()"></i>
+
+<i class="fas fa-search icon-button" onclick="openSearchBox()"></i>
+                <span id="input-area">
+                    <input type="text" id="search-input" placeholder="search" />
+                    <button class="search-button" onclick="searchNews()">Go</button>
+                </span>
+                
+
 
     <section class="container">
       <section>
@@ -48,9 +57,6 @@
             ></path>
           </svg>
         </div>
-          
-        </div>
-        <div>
         <div class="menus">
           <button>Sport</button>
           <button>Tech</button>
@@ -68,14 +74,14 @@
           <button>Gaming</button>
           <button>Energy</button>
         </div>
-      </div>
+
       </section>
-      <section>
-        <div>
-            <div>
-                <img src="https://i.namu.wiki/i/2_3T2MGAl0H10PhstAJy2i3g6VCBay2SDxpg4KiXLSu7LOWV6SmA7mevss9bK-3Rkbibe2m0Nvq2fNIDnvjOrA.webp">
+      <section id="news-board">
+        <div class="row news">
+            <div class="col-lg-4">
+                <img class="news-img-size" src="https://i.namu.wiki/i/2_3T2MGAl0H10PhstAJy2i3g6VCBay2SDxpg4KiXLSu7LOWV6SmA7mevss9bK-3Rkbibe2m0Nvq2fNIDnvjOrA.webp">
             </div>
-            <div>
+            <div class="col-lg-8">
                 <h2>
                   코딩알려주는 누나 강의 오픈
                 </h2>
@@ -87,6 +93,8 @@
                 </div>
             </div>
         </div>
+
+        
 
       </section>
     </section>
