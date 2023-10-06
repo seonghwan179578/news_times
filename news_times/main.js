@@ -1,4 +1,7 @@
 let news = [];
+let page = 1 // 첫 번째 페이지이므로 1이 붙는다
+let total_pages = 0 // 뉴스가 없을 수도 있으니 0부터 시작
+
 let menus = document.querySelectorAll(".menus button")
 menus.forEach(menu =>
    menu.addEventListener("click", (event) => getNewsByTopic(event))
@@ -12,16 +15,21 @@ const getNews = async () => {
     let header = new Headers({
       "x-api-key": "J-Qdg7eG9iQGpLKb86md1KXvfZ9EsJy96FfuMfhtTUI", 
     });
-  
+    url.searchParams.set('page', page) // 페이지라는 키를 뒤에 추가한다는 뜻. ex) &page=
+    console.log("url은?", url)
     let response = await fetch(url, { headers: header });
     let data = await response.json();
     if(response.status == 200) {
       if(data.total_hits == 0) {
         throw new Error("검색된 결과값이 없습니다.")
       }
+      console.log("받은 데이터가 뭐지?", data)
+      total_pages = data.total_pages
+      page = data.page
       news = data.articles;
       console.log(news);
       render();
+      pagination()
     } else {
       throw new Error(data.message)
     }
@@ -107,5 +115,29 @@ const errorRender = (message) => {
   document.getElementById("news-board").innerHTML = errorHTML
 }
 
+const pagination = ()=> {
+  let paginationHTML = ``
+  // total_page
+  // 현재 보고 있는 page
+  // page group
+  let pageGroup = Math.ceil(page/5)
+  // last page
+  let last = pageGroup*5
+  // first page
+  let first = last - 4
+  // first~last까지의 페이지 프린트
+  for(let i = first; i<=last; i++) {
+    paginationHTML += `<li class="page-item ${page == i?"active" : ""}"><a class="page-link" href="#" onclick="moveToPage(${i})">${i}</a></li>`
+  }
+  document.querySelector(".pagination").innerHTML = paginationHTML
+}
+
+// 페이지 이동 기능
+const moveToPage = (pageNum) => {
+  // 1. 이동하고 싶은 페이지를 알아야 한다
+  page = pageNum
+  // 2. 이동하고 싶은 페이지를 가지고 api를 다시 호출한다
+  getNews()
+}
 searchButton.addEventListener("click", getNewsByKeyword)
 getLatestNews();
