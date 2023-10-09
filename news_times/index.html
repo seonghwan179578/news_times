@@ -16,7 +16,7 @@
     
     <div class="side-menu" id="mySidenav">
       <button class="closebtn" onclick="closeNav()">&times;</button>
-      <div class="side-menu-list" id="menu-list">
+        <div class="side-menu-list" id="menu-list">
           <button>Sport</button>
           <button>Tech</button>
           <button>World</button>
@@ -32,27 +32,19 @@
           <button>Science</button>
           <button>Gaming</button>
           <button>Energy</button>
-      </div>
-
-</div>
-
-<!-- 생략 -->
-<!-- 햄버거 버튼 추가  -->
-<i class="fas fa-bars hide icon-button" onclick="openNav()"></i>
-
-<!-- <i class="fas fa-search icon-button" onclick="openSearchBox()"></i>
-                <span id="input-area">
-                    <input type="text" id="search-input" placeholder="search" />
-                    <button class="search-button" onclick="searchNews()">Go</button>
-                </span> -->
-                
+        </div>
+    </div>
 
 
     <section class="container">
-      <section>
+      <section class="head-line-section">
         <div>
-          <input type="text" id="search-input">
-          <button id="search-button">Go</button>
+          <i class="fas fa-bars hide icon-button" onclick="openNav()"></i>
+                <i class="fas fa-search icon-button" onclick="openSearchBox()"></i>
+                <span id="input-area">
+                    <input type="text" id="search-input" placeholder="search" />
+                    <button class="search-button" onclick="getNewsByKeyword()">Go</button>
+                </span>
         </div>
         <div class="head-line">
           <svg viewBox="0 0 184 25" fill="#000" aria-hidden="true">
@@ -61,7 +53,7 @@
             ></path>
           </svg>
         </div>
-        <div class="menus">
+        <div class="menus" id="menu-list">
           <button>Sport</button>
           <button>Tech</button>
           <button>World</button>
@@ -87,13 +79,13 @@
             </div>
             <div class="col-lg-8">
                 <h2>
-                  코딩알려주는 누나 강의 오픈
+                  기사 제목 테스트
                 </h2>
                 <p>
-                  강의 완판
+                  기사 내용 테스트
                 </p>
                 <div>
-                  KBS "2023-08-27"
+                  날짜 테스트
                 </div>
             </div>
         </div>

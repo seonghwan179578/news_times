@@ -1,3 +1,9 @@
+.head-line-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
 .head-line {
     margin-top: 1em;
     display: flex;
@@ -75,3 +81,4 @@
     background-color: beige;
     border-radius: 3px;
 }
+
